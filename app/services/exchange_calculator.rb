@@ -12,9 +12,9 @@ class ExchangeCalculator
   private
 
   def exchange(amount, from_coin, to_coin)
-    coin = Coin.where(symbol: to_coin).first
+    coin = Coin.find_by!(symbol: to_coin)
 
-    return if coin.nil?
+    raise ActiveRecord::RecordNotFound unless coin
 
     coin_price = coin&.price_btc&.to_f
     result = (amount / coin_price).round(4)
@@ -37,4 +37,4 @@ class ExchangeCalculator
   end
 end
 
-#ExchangeCalculator.new('BTC', 'ETH', 1.1).call
+# ExchangeCalculator.new('BTC', 'ETH', 1.1).call

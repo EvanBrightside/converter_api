@@ -10,13 +10,15 @@ class Api::ExchangesController < Api::BaseController
   # api :POST, 'http://localhost:3000/api/exchanges?from_coin=BTC&to_coin=ETH&amount=11'
   def create
     exchange = ExchangeCalculator.new(exchange_params).call
-    if exchange.save
+
+    return if exchange.nil?
+
+    if exchange.save!
       render json: {
-        status: 201,
-        result: exchange.result.to_s + ' ' + exchange.to_coin
-      }.to_json
+        result: "#{exchange.result} #{exchange.to_coin}"
+      }.to_json, status: :created
     else
-      respond_with exchange
+      render json: exchange.errors, status: :unprocessable_entity
     end
   end
 

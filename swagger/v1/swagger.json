@@ -1,0 +1,83 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/coins": {
+      "get": {
+        "summary": "Get all coins",
+        "tags": [
+          "Coins"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "get all coinss"
+          }
+        }
+      }
+    },
+    "/api/exchanges": {
+      "post": {
+        "summary": "Create an exchange",
+        "tags": [
+          "Exchanges"
+        ],
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "exchange",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "from_coin": {
+                  "type": "string"
+                },
+                "to_coin": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "from_coin",
+                "to_coin",
+                "amuont"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "exchange created"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get last 10 exchanges",
+        "tags": [
+          "Exchanges"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "last 10 exchanges"
+          }
+        }
+      }
+    }
+  }
+}

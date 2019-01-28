@@ -37,7 +37,8 @@ group :test do
 end
 
 gem 'dotenv-rails'
-gem 'whenever', require: false
-gem 'nokogiri'
 gem 'httparty'
+gem 'nokogiri'
+gem 'rswag'
 gem 'sidekiq'
+gem 'whenever', require: false
