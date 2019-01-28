@@ -1,24 +1,25 @@
-# README
+# CRYPTOCURRENCY CONVERTER
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
+* git clone `github.com/EvanBrightside/conveter_api.git`
+* bundle install
+* cp config/database.yml.example config/database.yml
+* rails db:setup
+* rails db:migrate
+* rails db:seed
+* rails s
 
-Things you may want to cover:
+## Tech
+* Ruby on Rails 5.2.2
+* Ruby 2.6.0
 
-* Ruby version
+## Usage
+* localhost:3000
+* bundle exec sidekiq
 
-* System dependencies
+## Web
+* sidekiq: `localhost:3000/sidekiq`
+* swagger: `localhost:3000/api-docs/index.html`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tests
+* bundle exec rspec spec
