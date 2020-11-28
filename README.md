@@ -1,7 +1,7 @@
 # CRYPTOCURRENCY CONVERTER
 
 ## Setup
-* git clone `github.com/EvanBrightside/conveter_api.git`
+* git clone `github.com/EvanBrightside/convreter_api.git`
 * bundle install
 * cp config/database.yml.example config/database.yml
 * rails db:setup
